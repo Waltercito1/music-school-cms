@@ -1,37 +1,32 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
-
   # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
+  get "/signup" do
+    erb :"/users/signup.html"
   end
 
   # POST: /users
-  post "/users" do
+  post "/signup" do
     redirect "/users"
   end
 
   # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show.html"
-  end
+  # get "/users/:id" do
+  #   erb :"/users/show.html"
+  # end
 
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
-  end
+  # # GET: /users/5/edit
+  # get "/users/:id/edit" do
+  #   erb :"/users/edit.html"
+  # end
 
-  # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
-  end
+  # # PATCH: /users/5
+  # patch "/users/:id" do
+  #   redirect "/users/:id"
+  # end
 
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
+  # # DELETE: /users/5/delete
+  # delete "/users/:id/delete" do
+  #   redirect "/users"
+  # end
 end
