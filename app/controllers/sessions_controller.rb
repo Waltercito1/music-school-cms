@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   get "/login" do
+    redirect "/courses" if logged_in?
     erb :"/sessions/login.html"
   end
 

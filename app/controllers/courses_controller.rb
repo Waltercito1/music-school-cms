@@ -1,7 +1,12 @@
 class CoursesController < ApplicationController
 
+  before("/courses") do
+    redirect_if_not_logged_in if request.path_info != "/login"
+  end
+
   # GET: /courses
   get "/courses" do
+    redirect_if_not_logged_in
     erb :"/courses/index.html"
   end
 
