@@ -7,7 +7,14 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/signup" do
-    redirect "/users"
+    user = User.create(params["user"])
+    if user.valid?
+      session["user_id"] = user.id
+      redirect '/courses'
+    else
+
+    end
+    
   end
 
   # GET: /users/5
