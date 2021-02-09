@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session["user_id"] = user.id
       redirect '/courses'
     else
-
+      redirect '/signup'
     end
     
   end
