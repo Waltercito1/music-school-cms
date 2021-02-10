@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   # GET: /courses
   get "/courses" do
     redirect_if_not_logged_in
+    @courses = Course.all
     erb :"/courses/index.html"
   end
 

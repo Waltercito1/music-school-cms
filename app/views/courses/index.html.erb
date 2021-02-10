@@ -4,5 +4,10 @@
     </div>
 <% end %>
 
-<h1>Courses' index page.</h1>
+<h1>All Available Courses</h1>
 
+<ul><% @courses.each do |course|%>
+    <li>
+    <h3>Course name: <%=course.id%><%= course.name%> </h3>
+    <%= course.description %></p>            
+<%end%></ul>
