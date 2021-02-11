@@ -31,10 +31,10 @@ class UsersController < ApplicationController
 
   # PATCH: /users/5
   patch "/users/:id" do
-    binding.pry
     user = User.find_by_id(params[:id])
-    User.update(params["user"])
-    redirect "/users/:id"
+    user.update(params["user"])
+    binding.pry
+    redirect "/users/#{user.id}"
   end
 
   # # DELETE: /users/5/delete
