@@ -1,10 +1,11 @@
-<div class="alert alert-danger" role="alert">
-    <% if flash[:error] %>
+<% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
         <div class="errors flash fatal">
             <h4 class="error"><%= flash[:error] %></h4>
         </div>
-    <% end %>
-</div>
+    </div>
+<% end %>
+
 
 <h1>All Available Courses</h1>
 <h3>Course name:</h3>
@@ -13,3 +14,13 @@
     <h3><%course.id%><%= course.name%> </h3>
     <p><%= course.description %></p>            
 <%end%></ul>
+
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    Course name:
+  </a>
+  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item">Morbi leo risus</a>
+  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item">Vestibulum at eros</a>
+</div>
