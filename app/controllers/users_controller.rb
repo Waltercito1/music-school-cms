@@ -23,15 +23,19 @@ class UsersController < ApplicationController
     erb :"/users/show.html"
   end
 
-  # # GET: /users/5/edit
-  # get "/users/:id/edit" do
-  #   erb :"/users/edit.html"
-  # end
+  # GET: /users/5/edit
+  get "/users/:id/edit" do
+    @user = User.find_by_id(params[:id])
+    erb :"/users/edit.html"
+  end
 
-  # # PATCH: /users/5
-  # patch "/users/:id" do
-  #   redirect "/users/:id"
-  # end
+  # PATCH: /users/5
+  patch "/users/:id" do
+    binding.pry
+    user = User.find_by_id(params[:id])
+    User.update(params["user"])
+    redirect "/users/:id"
+  end
 
   # # DELETE: /users/5/delete
   # delete "/users/:id/delete" do
