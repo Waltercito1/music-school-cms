@@ -1,13 +1,15 @@
-<% if flash[:error] %>
-    <div class="errors flash fatal">
-        <h4 class="error"><%= flash[:error] %></h4>
-    </div>
-<% end %>
+<div class="alert alert-danger" role="alert">
+    <% if flash[:error] %>
+        <div class="errors flash fatal">
+            <h4 class="error"><%= flash[:error] %></h4>
+        </div>
+    <% end %>
+</div>
 
 <h1>All Available Courses</h1>
-
+<h3>Course name:</h3>
 <ul><% @courses.each do |course|%>
     <li>
-    <h3>Course name: <%=course.id%><%= course.name%> </h3>
-    <%= course.description %></p>            
+    <h3><%course.id%><%= course.name%> </h3>
+    <p><%= course.description %></p>            
 <%end%></ul>

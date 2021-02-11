@@ -1,8 +1,10 @@
-<% if flash[:error] %>
-    <div class="errors flash fatal">
-        <h4 class="error"><%= flash[:error] %></h4>
-    </div>
-<% end %>
+<div class="alert alert-danger" role="alert">
+    <% if flash[:error] %>
+        <div class="errors flash fatal">
+            <h4 class="error"><%= flash[:error] %></h4>
+        </div>
+    <% end %>
+</div>
 
 <h1>Signup</h1>
 
