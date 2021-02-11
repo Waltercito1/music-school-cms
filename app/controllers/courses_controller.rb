@@ -23,6 +23,7 @@ class CoursesController < ApplicationController
 
   # GET: /courses/5
   get "/courses/:id" do
+    @course = Course.find(params[:id])
     erb :"/courses/show.html"
   end
 
