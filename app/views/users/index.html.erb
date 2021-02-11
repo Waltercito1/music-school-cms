@@ -1,1 +1,17 @@
-<h1>This is the Model's index page.</h1>
+<% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+        <div class="errors flash fatal">
+            <h4 class="error"><%= flash[:error] %></h4>
+        </div>
+    </div>
+<% end %>
+
+
+<h1>All Existing User</h1>
+
+<div class="list-group">
+    <% @users.each do |user|%>
+        
+  <a href="/users/<%= course.id%>" class="list-group-item"><%= user.name %></a>
+  <%end%>
+</div>

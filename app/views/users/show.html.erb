@@ -1,1 +1,8 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1>User information</h1>
+
+<div class="list-group">
+<h2>Name: <%= @user.user_name %> </h2>
+<h3>Email address: <a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </h3>
+<p>Biography: <%= @user.bio%></p>
+<h3>Instructor: <%= @user.instructor%></h3>
+</div>
