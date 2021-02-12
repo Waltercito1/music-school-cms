@@ -18,6 +18,13 @@ class UsersController < ApplicationController
     
   end
 
+  #GET: /users
+  get "/users" do
+    redirect_if_not_logged_in
+    @users = User.all
+    erb :"/users/index.html"
+  end
+
   #GET: /users/5
   get "/users/:id" do
     @user = User.find_by_id(params[:id])

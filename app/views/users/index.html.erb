@@ -7,11 +7,11 @@
 <% end %>
 
 
-<h1>All Existing User</h1>
+<h1>All Existing Users</h1>
 
 <div class="list-group">
     <% @users.each do |user|%>
         
-  <a href="/users/<%= course.id%>" class="list-group-item"><%= user.name %></a>
+  <a href="/users/<%= user.id%>" class="list-group-item"><%= user.user_name %></a>
   <%end%>
 </div>
