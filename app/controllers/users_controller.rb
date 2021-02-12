@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   post "/signup" do
     user = User.create(params["user"])
     if user.valid?
+      binding.pry
       flash[:success] = "New user created successfully."
       session["user_id"] = user.id
       redirect '/courses'
@@ -32,9 +33,13 @@ class UsersController < ApplicationController
   # PATCH: /users/5
   patch "/users/:id" do
     user = User.find_by_id(params[:id])
+    # user.update(user_name: params["user"]["user_name"], email_address: params["user"]["email_address"], bio: params["user"]["bio"] )
     user.update(params["user"])
-    binding.pry
-    redirect "/users/#{user.id}"
+    # if user.update(user_name: params["user"]["user_name"], email_address: params["user"]["email_address"], bio: params["user"]["bio"] )
+    #   redirect "/users/#{user.id}"
+    # else
+      binding.pry
+    # end
   end
 
   # # DELETE: /users/5/delete

@@ -1,4 +1,4 @@
-User.create(user_name: "Walter Aab", email_address: "walteraab@gmail.com", password: "password!!!", instructor: true)
+User.create(user_name: "Walter Aab", email_address: "walteraab@gmail.com", instructor: true)
 
 # Course.create(name: "Beginning Guitar", description: "This course provides beginning six-string guitar instruction in both folk and classical styles. First position keys and chords, harmonization by ear, transposition, various strums and styles, finger-picking accompaniments, bass notes, basic music theory, and note reading are presented. No previous musical experience is necessary.", level: 1, term: 1)
 # Course.create(name: "Intermediate Guitar", description: "This course provides instruction in intermediate six-string guitar skills. Intermediate-level classical solo repertoire as well as equivalent level popular music will be examined. Bar chords, intermediate level keys and arpeggios, transposition with and without a capo, strums, bass runs, and classical theory will be presented.", level: 2, term: 2)
