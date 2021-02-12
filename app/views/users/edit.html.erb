@@ -21,9 +21,7 @@
         </div>
         <div class="mb-3">
             <label for="bio" class="form-label">Biography:</label>
-        
-            <textarea name="user[bio]" id="bio" class="form-control" id="bio"  rows="3" placeholder="This user currently does not have a bio."><%= @user.bio %></textarea>
-
+            <textarea name="user[bio]" id="bio" class="form-control" id="bio"  rows="3" placeholder="This field is currently empty. Add a bio."><%= @user.bio %></textarea>
         </div>
 
         <input type="submit" value="Submit updates">
