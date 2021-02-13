@@ -10,21 +10,20 @@
                 <textarea type="text" name="course[description]" id="description" class="form-control" rows="3" placeholder="This field cannot be left empty. Please add a course description." required></textarea>
             </div>
         <form>
-        <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Course Category</label>
-                <select type="text" name="course[category]" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <option value="Instrument">Instrument</option>
-                    <option value="Ensemble">Ensemble</option>
-                    <option value="Music Theory">Music Theory</option>
-                    <option value="Voice">Voice</option>
-                    <option value="Voice/Ensemble">Voice/Ensemble</option>
-                    <option value="Other">Other</option>
-                </select>
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2" for="category">Course Category</label>
+                    <select type="text" name="course[category]" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+                        <option selected>Choose...</option>
+                        <option value="Instrument">Instrument</option>
+                        <option value="Ensemble">Ensemble</option>
+                        <option value="Music Theory">Music Theory</option>
+                        <option value="Voice">Voice</option>
+                        <option value="Voice/Ensemble">Voice/Ensemble</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        </form>
         <div class="btn-group">
             <input type="submit" class="btn btn-primary" value="Create New course">
         </div>
