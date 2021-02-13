@@ -1,18 +1,17 @@
 <h1>Enter New Course Information.</h1>
 <div class="form-container">
     <form method="post" action="/courses">
-            <div class="form-group">
-                <label for="name">Course name</label>
-                <input type="text" name="course[name]" id="name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Course description:</label>
-                <textarea type="text" name="course[description]" id="description" class="form-control" rows="3" placeholder="This field cannot be left empty. Please add a course description." required></textarea>
-            </div>
-    <form>
+        <div class="form-group">
+            <label for="name">Course name</label>
+            <input type="text" name="course[name]" id="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Course description:</label>
+            <textarea type="text" name="course[description]" id="description" class="form-control" rows="3" placeholder="This field cannot be left empty. Please add a course description." required></textarea>
+        </div>
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
-                <label class="mr-sm-2" for="category">Course Category</label>
+                <label class="mr-sm-2" for="category">Category</label>
                 <select type="text" name="course[category]" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
                     <option selected>Choose...</option>
                     <option value="Instrument">Instrument</option>
@@ -24,12 +23,10 @@
                 </select>
             </div>
         </div>
-    </form>
 
-    <form>
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
-                <label class="mr-sm-2" for="level">Course Level</label>
+                <label class="mr-sm-2" for="level">Level</label>
                 <select type="text" name="course[level]" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
                     <option selected>Choose...</option>
                     <option value="Beginner">Beginner</option>
@@ -37,22 +34,20 @@
                 </select>
             </div>
         </div>
-    </form>
 
-    <form>
         <div class="form-row align-items-center">
             <div class="col-auto my-1">
-                <label class="mr-sm-2" for="level">Course Level</label>
-                <select type="text" name="course[level]" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
+                <label class="mr-sm-2" for="semester">Semester</label>
+                <select type="text" name="course[semester]" class="custom-select mr-sm-2" id="inlineFormCustomSelect" required>
                     <option selected>Choose...</option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Fall">Fall</option>
                 </select>
             </div>
-        </div>
-    </form>
+        </div><br>
 
-    <div class="btn-group">
-        <input type="submit" class="btn btn-primary" value="Create New course">
-    </div>
+        <div class="btn-group">
+            <input type="submit" class="btn btn-primary" value="Create New course">
+        </div>
+    <form>
 </div>
