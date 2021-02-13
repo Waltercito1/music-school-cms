@@ -4,8 +4,8 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :description
       t.string :category
-      t.integer :level, default:0
-      t.integer :term, default:0
+      t.string :level
+      t.string :semester
       t.integer :instructor_id
 
       t.timestamps null: false

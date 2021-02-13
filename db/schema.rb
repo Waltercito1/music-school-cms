@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_02_08_211509) do
     t.string "name"
     t.string "description"
     t.string "category"
-    t.integer "level", default: 0
-    t.integer "term", default: 0
+    t.string "level"
+    t.string "semester"
     t.integer "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

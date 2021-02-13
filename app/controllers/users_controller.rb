@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if user.valid?
       flash[:success] = "New user created successfully."
       session["user_id"] = user.id
-      redirect '/'
+      redirect "/users/#{user.id}"
     else
       flash[:error] = user.errors.full_messages.first
       redirect '/signup'
