@@ -1,1 +1,33 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Enter New Course Information.</h1>
+<div class="form-container">
+    <form method="post" action="/courses">
+            <div class="form-group">
+                <label for="name">Course name</label>
+                <input type="text" name="course[name]" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Course description:</label>
+                <textarea type="text" name="course[description]" id="description" class="form-control" rows="3" placeholder="This field cannot be left empty. Please add a course description." required></textarea>
+            </div>
+        <form>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Course Category</label>
+                <select type="text" name="course[category]" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>Choose...</option>
+                    <option value="Instrument">Instrument</option>
+                    <option value="Ensemble">Ensemble</option>
+                    <option value="Music Theory">Music Theory</option>
+                    <option value="Voice">Voice</option>
+                    <option value="Voice/Ensemble">Voice/Ensemble</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        </form>
+        <div class="btn-group">
+            <input type="submit" class="btn btn-primary" value="Create New course">
+        </div>
+    </form>
+
+</div>

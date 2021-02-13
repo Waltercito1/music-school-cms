@@ -16,10 +16,12 @@ class CoursesController < ApplicationController
     erb :"/courses/new.html"
   end
 
-  # # POST: /courses
-  # post "/courses" do
-  #   redirect "/courses"
-  # end
+  # POST: /courses
+  post "/courses" do
+    binding.pry
+    #course = Course.create(params["course"])
+    redirect "/courses"
+  end
 
   # GET: /courses/5
   get "/courses/:id" do
