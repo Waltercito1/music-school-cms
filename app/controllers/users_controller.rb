@@ -50,9 +50,9 @@ class UsersController < ApplicationController
   # DELETE: /users/5/delete
   delete "/users/:id" do
     user = User.find_by_id(params[:id])
-    binding.pry
-    if user.delete
-      flash[:success] = "User updated successfully."
+    #binding.pry
+    if current_user #user.delete
+      flash[:success] = "User successfully deleted."
       redirect "/users"
     else
       flash[:error] = "Something went wrong. Please try again."
