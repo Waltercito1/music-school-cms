@@ -9,8 +9,17 @@
 <% end %>
 
 
-<h1>All Available Courses</h1>
-<h3>Course name:</h3>
+<h1>Available Courses</h1>
+<div class="btn-group">
+    <form action="/courses/new" method="get">
+        <button type="submit" class="btn btn-primary" formmethod="get">Create a New Course</button>
+    </form>
+</div>
+
+<div class="card-body">
+    <h5 class="card-title">Below is a comprehensive list of all courses currently available.</h5>
+    <p class="card-text">Click a couse link to view more details.</p>
+</div>
 
 <div class="list-group">
     <% @courses.each do |course|%>
