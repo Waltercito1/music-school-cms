@@ -44,8 +44,16 @@ class CoursesController < ApplicationController
     end
   end
 
-  # DELETE: /courses/5/delete
-  delete "/courses/:id/delete" do
-    redirect "/courses"
+  # DELETE: /courses/5
+  delete "/courses/:id" do
+    course = Course.find_by_id(params[:id])
+    #binding.pry
+    if current_user #course.delete
+      flash[:success] = "Course successfully deleted."
+      redirect "/courses"
+    else
+      flash[:error] = "Something went wrong. Please try again."
+    end
   end
+  
 end

@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE: /users/5/delete
+  # DELETE: /users/5
   delete "/users/:id" do
     user = User.find_by_id(params[:id])
     #binding.pry
@@ -58,4 +58,5 @@ class UsersController < ApplicationController
       flash[:error] = "Something went wrong. Please try again."
     end
   end
+  
 end
