@@ -7,10 +7,9 @@ class UsersController < ApplicationController
   post "/signup" do
     user = User.create(params["user"])
     if user.valid?
-      binding.pry
       flash[:success] = "New user created successfully."
       session["user_id"] = user.id
-      redirect '/courses'
+      redirect '/'
     else
       flash[:error] = user.errors.full_messages.first
       redirect '/signup'
@@ -48,8 +47,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # # DELETE: /users/5/delete
-  # delete "/users/:id/delete" do
-  #   redirect "/users"
-  # end
+  # DELETE: /users/5/delete
+  delete "/users/:id" do
+    user = User.find_by_id(params[:id])
+    binding.pry
+    if user.delete
+      flash[:success] = "User updated successfully."
+      redirect "/users"
+    else
+      flash[:error] = "Something went wrong. Please try again."
+    end
+  end
 end
