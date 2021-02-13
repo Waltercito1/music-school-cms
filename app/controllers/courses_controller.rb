@@ -29,12 +29,19 @@ class CoursesController < ApplicationController
 
   # GET: /courses/5/edit
   get "/courses/:id/edit" do
+    @course = Course.find(params[:id])
     erb :"/courses/edit.html"
   end
 
   # PATCH: /courses/5
   patch "/courses/:id" do
-    redirect "/courses/:id"
+    course = Course.find_by_id(params[:id])
+    if course.update(params["course"])
+      flash[:success] = "Course updated successfully."
+      redirect "/courses/#{course.id}"
+    else
+      flash[:error] = course.errors.full_messages.first
+    end
   end
 
   # DELETE: /courses/5/delete

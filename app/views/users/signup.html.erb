@@ -1,8 +1,10 @@
 <% if flash[:error] %>
     <div class="alert alert-danger" role="alert">
-        <div class="errors flash fatal">
-            <h4 class="error"><%= flash[:error] %></h4>
-        </div>
+        <h5 class="error"><%= flash[:error] %></h5>
+    </div>
+<% elsif flash[:success] %>
+    <div class="alert alert-success" role="alert">
+        <h5 class="success"><%= flash[:success] %></h5>
     </div>
 <% end %>
 

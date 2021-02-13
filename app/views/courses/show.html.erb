@@ -1,4 +1,18 @@
+<% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+        <h5 class="error"><%= flash[:error] %></h5>
+    </div>
+<% elsif flash[:success] %>
+    <div class="alert alert-success" role="alert">
+        <h5 class="success"><%= flash[:success] %></h5>
+    </div>
+<% end %>
+
 <h1>Course information</h1>
 
 <h2><%= @course.name %> </h2>
 <p><%= @course.description%></p>
+
+<form action="/courses/<%=@course.id%>/edit" method="get">
+<button type="submit" class="btn btn-primary" formmethod="get">Edit</button>
+</form>

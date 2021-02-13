@@ -1,8 +1,10 @@
 <% if flash[:error] %>
     <div class="alert alert-danger" role="alert">
-        <div class="errors flash fatal">
-            <h4 class="error"><%= flash[:error] %></h4>
-        </div>
+        <h5 class="error"><%= flash[:error] %></h5>
+    </div>
+<% elsif flash[:success] %>
+    <div class="alert alert-success" role="alert">
+        <h5 class="success"><%= flash[:success] %></h5>
     </div>
 <% end %>
 
@@ -10,16 +12,9 @@
 <h1>All Available Courses</h1>
 <h3>Course name:</h3>
 
-
 <div class="list-group">
     <% @courses.each do |course|%>
         
   <a href="/courses/<%= course.id%>" class="list-group-item"><%= course.name %></a>
   <%end%>
 </div>
-
-<!--<ul><% @courses.each do |course|%>
-    <li>
-    <h3><%course.id%><%= course.name%> </h3>
-    <p><%= course.description %></p>            
-<%end%></ul>-->

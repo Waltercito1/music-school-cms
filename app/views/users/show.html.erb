@@ -1,8 +1,22 @@
+<% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+        <h5 class="error"><%= flash[:error] %></h5>
+    </div>
+<% elsif flash[:success] %>
+    <div class="alert alert-success" role="alert">
+        <h5 class="success"><%= flash[:success] %></h5>
+    </div>
+<% end %>
+
 <h1>User information</h1>
 
 <div class="list-group">
-<h2>Name: <%= @user.user_name %> </h2>
-<h3>Email address: <a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </h3>
-<h3>Biography: <%= @user.bio %></h3>
-<h3>Instructor: <%= @user.instructor%></h3>
+    <h2>User name: <%= @user.user_name %> </h2>
+    <h3>Email address: <a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </h3>
+    <h3>Biography: <%= @user.bio %></h3>
+    <h3>Instructor: <%= @user.instructor%></h3>
 </div>
+
+<form action="/users/<%=@user.id%>/edit" method="get">
+<button type="submit" class="btn btn-primary" formmethod="get">Edit</button>
+</form>

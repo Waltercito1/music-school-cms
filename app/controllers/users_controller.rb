@@ -40,13 +40,12 @@ class UsersController < ApplicationController
   # PATCH: /users/5
   patch "/users/:id" do
     user = User.find_by_id(params[:id])
-    # user.update(user_name: params["user"]["user_name"], email_address: params["user"]["email_address"], bio: params["user"]["bio"] )
-    user.update(params["user"])
-    # if user.update(user_name: params["user"]["user_name"], email_address: params["user"]["email_address"], bio: params["user"]["bio"] )
-    #   redirect "/users/#{user.id}"
-    # else
-      binding.pry
-    # end
+    if user.update(params["user"])
+      flash[:success] = "User updated successfully." 
+      redirect "/users/#{user.id}"
+    else
+      flash[:error] = user.errors.full_messages.first
+    end
   end
 
   # # DELETE: /users/5/delete
