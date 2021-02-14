@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>MusicSchoolCms</title>
+    <title>MusicSchoolCMS</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -15,12 +15,16 @@
   </head>
   <body>
     <div class="wrapper">
+        <% if flash[:error] %>
+            <div class="alert alert-danger" role="alert">
+                <h5 class="error"><%= flash[:error] %></h5>
+            </div>
+        <% elsif flash[:success] %>
+            <div class="alert alert-success" role="alert">
+                <h5 class="success"><%= flash[:success] %></h5>
+            </div>
+        <% end %>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -31,23 +35,23 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/users">Users</a>
               </li>
-              <% if !logged_in? %>
-                <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/signup">Signup</a>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <a class="nav-link" href="/logout">Logout</a>
-                </li>
-              <% end %>
-              <!--<li class="nav-item active">
-                <a class="nav-link" href="/courses">Courses</a>
-              </li>-->
-            </ul>
-          </div>
+              </ul>
+              <div>
+                <ul>
+                <% if !logged_in? %>
+                  <li>
+                    <a class="float-right" href="/login">Login</a> 
+                  </li>
+                  <li>
+                    <a class="float-right" href="/signup">Signup</a>
+                  </li>
+                <% else %>
+                  <li>
+                    <a class="float-right" href="/logout">Logout</a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
         </nav>
 
         <%= yield %>
@@ -56,6 +60,8 @@
         <small>&copy; 2021 <strong>MusicSchoolCms</strong></small>
       </footer>
     </div>
+
+    
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
