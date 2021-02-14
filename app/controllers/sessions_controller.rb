@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Success!"
       redirect '/'
     else
-      flash[:error] = "Invalid credentials"
+      flash[:error] = "Invalid credentials, please try again or Sign Up to create an account."
       redirect '/login'
     end
   end

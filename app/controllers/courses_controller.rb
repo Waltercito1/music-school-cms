@@ -19,6 +19,7 @@ class CoursesController < ApplicationController
   # POST: /courses
   post "/courses" do
     course = Course.create(params["course"])
+    course.update(:instructor_id => session[:user_id])
     flash[:success] = "Course successfully created."
     redirect "/courses/#{course.id}"
   end

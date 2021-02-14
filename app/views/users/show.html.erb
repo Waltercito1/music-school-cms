@@ -11,7 +11,7 @@
 <h1>User information</h1>
 
 <div class="list-group">
-    <h2><strong>User name: </strong><%= @user.user_name %> </h2>
+    <h2><strong>User name: </strong><%= @user.user_name%></h2>
     <p><strong>Email address: </strong><a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </p>
     <p><strong>Biography: </strong></p>
         <%if @user.bio.nil? || @user.bio.length == 0 %>
@@ -19,15 +19,14 @@
         <%else%>
             <p><%= @user.bio %></p>
         <%end%>
-    <!--<h3>Instructor: <%= @user.instructor%></h3>-->
-    <h2>Curses created by you: </h2>
-    </div>
+</div>
 
 <div class="btn-group">
     <form action="/users/<%=@user.id%>/edit" method="get">
         <button type="submit" class="btn btn-primary" formmethod="get">Edit User's Info</button>
     </form>
 </div>
+
 <div class="btn-group">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
@@ -57,4 +56,12 @@
     </div>
     </div>
 </div>
+</div>
+<br><br>
+
+<h2>Curses created by <%= @user.user_name %></h2>
+<div class="list-group">
+    <% @courses.each do |course|%>   
+        <a href="/courses/<%= course.id%>" class="list-group-item"><%= course.name %></a>
+    <%end%>
 </div>
