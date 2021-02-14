@@ -18,8 +18,8 @@ class CoursesController < ApplicationController
 
   # POST: /courses
   post "/courses" do
-    binding.pry
-    #course = Course.create(params["course"])
+    #binding.pry
+    course = Course.create(params["course"])
     redirect "/courses"
   end
 

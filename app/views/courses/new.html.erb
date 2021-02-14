@@ -1,3 +1,13 @@
+<% if flash[:error] %>
+    <div class="alert alert-danger" role="alert">
+        <h5 class="error"><%= flash[:error] %></h5>
+    </div>
+<% elsif flash[:success] %>
+    <div class="alert alert-success" role="alert">
+        <h5 class="success"><%= flash[:success] %></h5>
+    </div>
+<% end %>
+
 <h1>Enter New Course Information.</h1>
 <div class="form-container">
     <form method="post" action="/courses">

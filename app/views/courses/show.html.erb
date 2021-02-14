@@ -10,8 +10,24 @@
 
 <h1>Course information</h1>
 
-<h2><%= @course.name %> </h2>
-<p><%= @course.description%></p>
+<h2><strong>Name: </strong><%= @course.name %> </h2>
+<p><strong>Description:</strong></p><p><%= @course.description%></p><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Level</th>
+      <th scope="col">Semester</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @course.category%></td>
+      <td><%= @course.level%></td>
+      <td><%= @course.semester%></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="btn-group">
     <form action="/courses/<%=@course.id%>/edit" method="get">
