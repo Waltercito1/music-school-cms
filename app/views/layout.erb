@@ -38,6 +38,9 @@
                 </li>
               <% else %>
                 <li>
+                  <p><%= current_user.user_name%></p>  
+                </li>
+                <li>
                   <a class="float-right" href="/logout">Logout</a>
                 </li>
               <% end %>
