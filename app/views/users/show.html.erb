@@ -11,10 +11,16 @@
 <h1>User information</h1>
 
 <div class="list-group">
-    <h2>User name: <%= @user.user_name %> </h2>
-    <h3>Email address: <a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </h3>
-    <h3>Biography: <%= @user.bio %></h3>
-    <h3>Instructor: <%= @user.instructor%></h3>
+    <h2><strong>User name: </strong><%= @user.user_name %> </h2>
+    <p><strong>Email address: </strong><a href="Mailto:<%= @user.email_address%>" > <%= @user.email_address%></a> </p>
+    <p><strong>Biography: </strong></p>
+        <%if @user.bio.nil? || @user.bio.length == 0 %>
+            <p>Your profile currently does not have a bio. Use the Edit User's Info button to add a short biography to your user's profile.</p>
+        <%else%>
+            <p><%= @user.bio %></p>
+        <%end%>
+    <!--<h3>Instructor: <%= @user.instructor%></h3>-->
+    
 </div>
 
 <div class="btn-group">
