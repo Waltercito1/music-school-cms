@@ -27,6 +27,9 @@ class UsersController < ApplicationController
   #GET: /users/5
   get "/users/:id" do
     @user = User.find_by_id(params[:id])
+    #@courses = Course.all
+    @courses = Course.all.belongs_to(:user_id)
+    #binding.pry
     erb :"/users/show.html"
   end
 

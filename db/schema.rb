@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_211509) do
     t.string "email_address"
     t.string "bio"
     t.string "password_digest"
-    t.boolean "instructor", default: false
+    t.boolean "instructor", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

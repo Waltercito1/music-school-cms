@@ -18,9 +18,9 @@ class CoursesController < ApplicationController
 
   # POST: /courses
   post "/courses" do
-    #binding.pry
     course = Course.create(params["course"])
-    redirect "/courses"
+    flash[:success] = "Course successfully created."
+    redirect "/courses/#{course.id}"
   end
 
   # GET: /courses/5
@@ -49,8 +49,8 @@ class CoursesController < ApplicationController
   # DELETE: /courses/5
   delete "/courses/:id" do
     course = Course.find_by_id(params[:id])
-    #binding.pry
-    if current_user #course.delete
+    if current_user 
+      course.delete
       flash[:success] = "Course successfully deleted."
       redirect "/courses"
     else
