@@ -29,6 +29,8 @@ class UsersController < ApplicationController
   get "/users/:id" do
     @user = User.find_by_id(params[:id])
     @courses = Course.select{ |course| course.instructor_id == session[:user_id]}
+    #@courses = Course.select{ |course| course.instructor_id == current_user.id}
+    #<%if logged_in? && current_user.id == @course.instructor_id%>
     #binding.pry
     erb :"/users/show.html"
   end
@@ -54,7 +56,8 @@ class UsersController < ApplicationController
   delete "/users/:id" do
     user = User.find_by_id(params[:id])
     #binding.pry
-    if current_user #user.delete
+    if current_user.id == user.id
+      user.delete
       flash[:success] = "User successfully deleted."
       redirect "/users"
     else
