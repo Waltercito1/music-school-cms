@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+  #GET: /signup
   get "/signup" do
     erb :"/users/signup.html"
   end
 
+  #POST: /signup
   post "/signup" do
     user = User.create(params["user"])
     if user.valid?
@@ -14,7 +16,6 @@ class UsersController < ApplicationController
       flash[:error] = user.errors.full_messages.first
       redirect '/signup'
     end
-    
   end
 
   #GET: /users
@@ -50,7 +51,6 @@ class UsersController < ApplicationController
   # DELETE: /users/5
   delete "/users/:id" do
     user = User.find_by_id(params[:id])
-    #binding.pry
     if current_user.id == user.id
       user.delete
       flash[:success] = "User successfully deleted."
