@@ -6,7 +6,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.string :category
       t.string :level
       t.string :semester
-      t.integer :instructor_id
+      t.integer :user_id
 
       t.timestamps null: false
     end

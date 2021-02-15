@@ -19,7 +19,6 @@ class CoursesController < ApplicationController
   # POST: /courses
   post "/courses" do
     course = Course.create(params["course"])
-    course.update(:instructor_id => session[:user_id])
     flash[:success] = "Course successfully created."
     redirect "/courses/#{course.id}"
   end
@@ -28,6 +27,7 @@ class CoursesController < ApplicationController
   get "/courses/:id" do
     @course = Course.find(params[:id])
     erb :"/courses/show.html"
+    #binding.pry
   end
 
   # GET: /courses/5/edit
