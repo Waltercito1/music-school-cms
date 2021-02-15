@@ -21,17 +21,12 @@ class UsersController < ApplicationController
   get "/users" do
     redirect_if_not_logged_in
     @users = User.all
-    #binding.pry
     erb :"/users/index.html"
   end
 
   #GET: /users/5
   get "/users/:id" do
     @user = User.find_by_id(params[:id])
-    #@courses = Course.select{ |course| course.instructor_id == session[:user_id]}
-    #@courses = Course.select{ |course| course.instructor_id == current_user.id}
-    #<%if logged_in? && current_user.id == @course.instructor_id%>
-    #binding.pry
     erb :"/users/show.html"
   end
 
