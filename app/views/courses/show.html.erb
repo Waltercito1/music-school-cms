@@ -11,6 +11,12 @@
 <h1>Course information</h1>
 
 <h2><strong>Name: </strong><%= @course.name %> </h2>
+<p><strong>Created by: </strong>
+    <% if @course.user == nil %>
+        School Administration
+    <%else%>
+        <a href="/users/<%= @course.user.id %>" > <%= @course.user.user_name %></a></p>
+    <%end%>
 <p><strong>Description:</strong></p><p><%= @course.description%></p><br>
 <table class="table">
   <thead>

@@ -9,8 +9,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email_address(params["user"]["email_address"])
     if user && user.authenticate(params["user"]["password"])
       session["user_id"] = user.id
-      flash[:success] = "Success!"
-      redirect '/'
+      flash[:success] = "Successfully logged in!"
+      #redirect '/'
+      redirect "/users/#{user.id}"
     else
       flash[:error] = "Invalid credentials, please try again or Sign Up to create an account."
       redirect '/login'

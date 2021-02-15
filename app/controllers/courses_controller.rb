@@ -18,16 +18,18 @@ class CoursesController < ApplicationController
 
   # POST: /courses
   post "/courses" do
-    course = Course.create(params["course"])
+    #course = Course.create(params["course"])
+    course = current_user.courses.create(params["course"])
     flash[:success] = "Course successfully created."
+    #binding.pry
     redirect "/courses/#{course.id}"
   end
 
   # GET: /courses/5
   get "/courses/:id" do
     @course = Course.find(params[:id])
-    erb :"/courses/show.html"
     #binding.pry
+    erb :"/courses/show.html"
   end
 
   # GET: /courses/5/edit
