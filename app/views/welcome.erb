@@ -7,7 +7,14 @@
         <div class="card-body">
           <h5 class="card-title">Course Management Page</h5>
           <p class="card-text">Welcome! Use this page to create new courses, view a list of all courses you've created, or view a comprehensive list of all courses currenlty being offered.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">Please login to get started or signup to create an account - it's free!</p>
+          <%if !logged_in? %>
+          <a class="btn btn-primary btn-lg btn-block" href="/login" >Login</a></button>
+          <a class="btn btn-secondary btn-lg btn-block" href="/signup" >Signup</a></button>
+          <%else%>
+          <a class="btn btn-primary btn-lg btn-block" href="/courses" >All Courses</a></button>
+          <a class="btn btn-secondary btn-lg btn-block" href="/users" >All Users</a></button>
+          <%end%>
         </div>
       </div>
     </div>

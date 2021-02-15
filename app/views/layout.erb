@@ -17,33 +17,26 @@
     <div class="wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/courses">Courses</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/users">Users</a>
-            </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/courses">Courses</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/users">Users</a>
+              </li>
             </ul>
             <div>
               <ul>
-              <% if !logged_in? %>
-                <li>
-                  <a class="float-right" href="/login">Login</a> 
-                </li>
-                <li>
-                  <a class="float-right" href="/signup">Signup</a>
-                </li>
-              <% else %>
+              <% if logged_in?%>
                 <li>
                   <small><%= current_user.user_name%></small>  
                 </li>
                 <li>
                   <a class="float-right" href="/logout">Logout</a>
                 </li>
-              <% end %>
+              <%end%>
             </ul>
           </div>
       </nav>
