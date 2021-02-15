@@ -38,11 +38,13 @@ class CoursesController < ApplicationController
   # PATCH: /courses/5
   patch "/courses/:id" do
     course = Course.find_by_id(params[:id])
-    if course.update(params["course"])
+    if current_user && course.user.id == current_user.id
+      course.update(params["course"])
       flash[:success] = "Course updated successfully."
       redirect "/courses/#{course.id}"
     else
-      flash[:error] = course.errors.full_messages.first
+      flash[:error] = "You do not have permission to update this course."
+      redirect "/courses/#{course.id}"
     end
   end
 

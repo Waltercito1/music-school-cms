@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params["user"]["password"])
       session["user_id"] = user.id
       flash[:success] = "Successfully logged in!"
-      #redirect '/'
       redirect "/users/#{user.id}"
     else
       flash[:error] = "Invalid credentials, please try again or Sign Up to create an account."
