@@ -1,5 +1,3 @@
-#require './config/environment'
-
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -18,9 +16,9 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
-  # error Sinatra::NotFound do
-  #   erb :"error.html"
-  # end
+  error Sinatra::NotFound do
+    erb :"error.html"
+  end
 
   helpers do
     def current_user
