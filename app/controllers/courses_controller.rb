@@ -80,5 +80,4 @@ class CoursesController < ApplicationController
       redirect "/courses/#{course.id}"
     end
   end
-  
 end

@@ -73,5 +73,4 @@ class UsersController < ApplicationController
       redirect "/users/#{user.id}"
     end
   end
-  
 end
