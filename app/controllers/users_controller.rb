@@ -51,11 +51,13 @@ class UsersController < ApplicationController
   # PATCH: /users/5
   patch "/users/:id" do
     user = User.find_by_id(params[:id])
-    if user.update(params["user"])
+    if current_user.id == user.id
+      user.update(params["user"])
       flash[:success] = "User updated successfully." 
       redirect "/users/#{user.id}"
     else
-      flash[:error] = user.errors.full_messages.first
+      flash[:error] = "You do not have permissions to update this user."
+      redirect "/users/#{user.id}"
     end
   end
 

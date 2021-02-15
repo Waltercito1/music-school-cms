@@ -63,7 +63,7 @@ class CoursesController < ApplicationController
       flash[:success] = "Course updated successfully."
       redirect "/courses/#{course.id}"
     else
-      flash[:error] = "You do not have permission to update this course."
+      flash[:error] = "You do not have permissions to update this course."
       redirect "/courses/#{course.id}"
     end
   end
