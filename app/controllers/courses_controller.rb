@@ -18,17 +18,14 @@ class CoursesController < ApplicationController
 
   # POST: /courses
   post "/courses" do
-    #course = Course.create(params["course"])
     course = current_user.courses.create(params["course"])
     flash[:success] = "Course successfully created."
-    #binding.pry
     redirect "/courses/#{course.id}"
   end
 
   # GET: /courses/5
   get "/courses/:id" do
     @course = Course.find(params[:id])
-    #binding.pry
     erb :"/courses/show.html"
   end
 
@@ -52,12 +49,13 @@ class CoursesController < ApplicationController
   # DELETE: /courses/5
   delete "/courses/:id" do
     course = Course.find_by_id(params[:id])
-    if current_user 
+    if current_user && course.user.id == current_user.id
       course.delete
       flash[:success] = "Course successfully deleted."
       redirect "/courses"
     else
       flash[:error] = "Something went wrong. Please try again."
+      redirect "/courses/#{course.id}"
     end
   end
   
