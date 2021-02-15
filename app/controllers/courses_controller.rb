@@ -22,9 +22,14 @@ class CoursesController < ApplicationController
 
   # POST: /courses
   post "/courses" do
-    course = current_user.courses.create(params["course"])
-    flash[:success] = "Course successfully created."
-    redirect "/courses/#{course.id}"
+    if current_user
+      course = current_user.courses.create(params["course"])
+      flash[:success] = "Course successfully created."
+      redirect "/courses/#{course.id}"
+    else
+      flash[:error] = "Something went wrong. Please try again."
+      redirect "/courses/new"
+    end
   end
 
   # GET: /courses/5
@@ -35,8 +40,18 @@ class CoursesController < ApplicationController
 
   # GET: /courses/5/edit
   get "/courses/:id/edit" do
-    @course = Course.find(params[:id])
-    erb :"/courses/edit.html"
+    if logged_in?
+      @course = Course.find(params[:id])
+      if current_user && @course.user.id == current_user.id
+        erb :"/courses/edit.html"
+      else
+        flash[:error] = "You do not have permission to update this course."
+        redirect "/courses/#{@course.id}"
+      end
+    else
+      flash[:error] = "You must be logged in to edit a course."
+      redirect "/login"
+    end
   end
 
   # PATCH: /courses/5
