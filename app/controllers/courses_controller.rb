@@ -34,6 +34,7 @@ class CoursesController < ApplicationController
 
   # GET: /courses/5
   get "/courses/:id" do
+    redirect_if_not_logged_in
     @course = Course.find(params[:id])
     erb :"/courses/show.html"
   end
