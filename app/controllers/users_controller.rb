@@ -69,7 +69,8 @@ class UsersController < ApplicationController
       flash[:success] = "User successfully deleted."
       redirect "/users"
     else
-      flash[:error] = "Something went wrong. Please try again."
+      flash[:error] = "You do not have permissions to delete this user."
+      redirect "/users/#{user.id}"
     end
   end
   
