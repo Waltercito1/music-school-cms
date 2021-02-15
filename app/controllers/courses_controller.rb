@@ -13,7 +13,11 @@ class CoursesController < ApplicationController
 
   # GET: /courses/new
   get "/courses/new" do
-    erb :"/courses/new.html"
+    if current_user
+      erb :"/courses/new.html"
+    else
+      redirect "/login"
+    end
   end
 
   # POST: /courses
