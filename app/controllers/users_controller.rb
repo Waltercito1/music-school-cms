@@ -27,14 +27,25 @@ class UsersController < ApplicationController
 
   #GET: /users/5
   get "/users/:id" do
+    redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
     erb :"/users/show.html"
   end
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
-    @user = User.find_by_id(params[:id])
-    erb :"/users/edit.html"
+    if logged_in?
+      @user = User.find_by_id(params[:id])
+      if current_user && @user.id == current_user.id
+        erb :"/users/edit.html"
+      else
+        flash[:error] = "You do not have permissions to edit this user."
+          redirect "/users/#{@user.id}"
+      end
+    else
+      flash[:error] = "You must be logged in to edit a user's information."
+      redirect "/login"
+    end
   end
 
   # PATCH: /users/5
