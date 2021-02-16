@@ -67,3 +67,11 @@
         <a href="/courses/<%= course.id%>" class="list-group-item"><%= course.name %></a>
     <%end%>
 </div>
+<br>
+<%if logged_in? && current_user.id == @user.id%>
+    <div class="btn-group">
+        <form action="/courses/new" method="get">
+            <button type="submit" class="btn btn-primary" formmethod="get">Create a New Course</button>
+        </form>
+    </div>
+<%end%>
