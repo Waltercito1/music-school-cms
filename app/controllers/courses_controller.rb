@@ -40,8 +40,14 @@ class CoursesController < ApplicationController
   # GET: /courses/5
   get "/courses/:id" do
     redirect_if_not_logged_in
-    @course = Course.find(params[:id])
-    erb :"/courses/show.html"
+    #binding.pry
+    if Course.all.include?(params[:id])
+      @course = Course.find(params[:id])
+      erb :"/courses/show.html"
+    else
+      flash[:error] = "Something went wrong. Please try again."
+      redirect "/courses"
+    end
   end
 
   # GET: /courses/5/edit
