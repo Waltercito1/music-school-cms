@@ -1,7 +1,7 @@
 # Music School Content Management System
 Sinatra Application - Second portfolio project for Flatiron (102020 - ONL - SE - PT)
 
-Welcome to the Music School Content Management System. This app allows the users to Create, Read, Update, and Deleted their user profile as well as the music courses they created while logged in. The app also allows users to browse the courses created by other users.
+Welcome to the Music School Content Management System. This app allows the users to Create, Read, Update, and Deleted their user profile as well as the music courses they created while logged in. The app also allows users to browse the courses created by other users and their profiles.
 
 ## Installation
 Fork and clone this repository and cd into the directory.
@@ -10,7 +10,7 @@ Then execute:
 
     $ bundle install
 
-Once all gems have been installed, run Shotgun in your terminal to start a local server.
+Once all gems have been successfully installed, run Shotgun in your terminal to start a local server.
 
     $ shotgun
 
