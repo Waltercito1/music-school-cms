@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
   get "/courses/:id/edit" do
     if logged_in?
       @course = Course.find(params[:id])
-      if current_user && @course.user.id == current_user.id
+      if @course.user != nil && current_user && @course.user.id == current_user.id
         erb :"/courses/edit.html"
       else
         flash[:error] = "You do not have permission to update this course."

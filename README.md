@@ -10,7 +10,7 @@ Then execute:
 
     $ bundle install
 
-Once all gems have been installed, run Shotgun to start a local server.
+Once all gems have been installed, run Shotgun in your terminal to start a local server.
 
     $ shotgun
 
