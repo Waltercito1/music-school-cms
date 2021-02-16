@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       redirect "/users/#{user.id}"
     else
       flash[:error] = user.errors.full_messages.first
-      redirect '/signup'
+      redirect "/signup"
     end
   end
 

@@ -13,12 +13,12 @@ class SessionsController < ApplicationController
       redirect "/users/#{user.id}"
     else
       flash[:error] = "Invalid credentials, please try again or Sign Up to create an account."
-      redirect '/login'
+      redirect "/login"
     end
   end
 
   get '/logout' do
     session.clear
-    redirect '/'
+    redirect "/"
   end
 end

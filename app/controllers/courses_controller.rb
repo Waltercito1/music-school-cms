@@ -24,8 +24,13 @@ class CoursesController < ApplicationController
   post "/courses" do
     if current_user
       course = current_user.courses.create(params["course"])
+      if course.valid?
       flash[:success] = "Course successfully created."
       redirect "/courses/#{course.id}"
+      else
+        flash[:error] = course.errors.full_messages.first
+        redirect "/courses/new"
+      end
     else
       flash[:error] = "Something went wrong. Please try again."
       redirect "/courses/new"
