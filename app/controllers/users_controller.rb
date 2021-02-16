@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     if current_user.id == user.id
       user.delete
       flash[:success] = "User successfully deleted."
-      redirect "/users"
+      redirect "/logout"
     else
       flash[:error] = "You do not have permissions to delete this user."
       redirect "/users/#{user.id}"
