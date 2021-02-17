@@ -40,7 +40,8 @@ class CoursesController < ApplicationController
   # GET: /courses/5
   get "/courses/:id" do
     redirect_if_not_logged_in
-    if Course.all.include?(params[:id])
+    #binding.pry
+    if Course.all.ids.to_s.include?(params[:id]) #Course.all.include?(params[:id])
       @course = Course.find(params[:id])
       erb :"/courses/show.html"
     else
