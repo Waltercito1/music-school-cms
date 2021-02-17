@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         erb :"/users/edit.html"
       else
         flash[:error] = "You do not have permissions to edit this user."
-          redirect "/users/#{@user.id}"
+        redirect "/users/#{@user.id}"
       end
     else
       flash[:error] = "You must be logged in to edit a user's information."
