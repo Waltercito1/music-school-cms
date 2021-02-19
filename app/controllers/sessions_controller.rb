@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email_address(params["user"]["email_address"])
     if user && user.authenticate(params["user"]["password"])
       session["user_id"] = user.id
+      #binding.pry
       flash[:success] = "Successfully logged in!"
       redirect "/users/#{user.id}"
     else

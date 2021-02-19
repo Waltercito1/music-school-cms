@@ -10,7 +10,11 @@ Then execute:
 
     $ bundle install
 
-Once all gems have been successfully installed, run Shotgun in your terminal to start a local server.
+Once all gems have been successfully installed. 
+
+Create a .env file and set a constant variable named SESSION_SECRET equal to a random secret value.
+
+Run Shotgun in your terminal to start a local server.
 
     $ shotgun
 
